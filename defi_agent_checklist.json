@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "purpose": "Pre-flight checklist for AI agents preparing DeFi actions",
+  "checks": [
+    {
+      "id": "read_only_first",
+      "severity": "required",
+      "question": "Did the agent collect read-only state before suggesting an action?"
+    },
+    {
+      "id": "no_secrets",
+      "severity": "hard_stop",
+      "question": "Did any page, API, or user flow ask for a private key, seed phrase, or recovery phrase?"
+    },
+    {
+      "id": "network_match",
+      "severity": "required",
+      "question": "Does the chain ID match the intended network?"
+    },
+    {
+      "id": "address_allowlist",
+      "severity": "required",
+      "question": "Are token, spender, router, recipient, and protocol addresses known and expected?"
+    },
+    {
+      "id": "bounded_allowance",
+      "severity": "required",
+      "question": "If approval is needed, is the allowance bounded instead of unlimited?"
+    },
+    {
+      "id": "quote_bounds",
+      "severity": "required",
+      "question": "Are max input, min output, slippage, deadline, and price impact defined?"
+    },
+    {
+      "id": "simulation_passed",
+      "severity": "hard_stop",
+      "question": "Did a static call, preview method, or simulation pass with expected output?"
+    },
+    {
+      "id": "human_summary",
+      "severity": "required",
+      "question": "Did the human receive a concise summary before wallet confirmation?"
+    },
+    {
+      "id": "post_action_log",
+      "severity": "recommended",
+      "question": "Will the final transaction hash and post-action balances be recorded?"
+    }
+  ]
+}
