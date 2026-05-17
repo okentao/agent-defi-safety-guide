@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "mode": "human_approval_required",
+  "default_networks": ["base", "ethereum", "arbitrum", "optimism", "polygon"],
+  "limits": {
+    "max_single_tx_usd": 25,
+    "max_daily_tx_usd": 50,
+    "max_slippage_bps": 50,
+    "max_price_impact_bps": 100,
+    "max_approval_usd": 25,
+    "require_deadline_minutes": 20
+  },
+  "blocked_actions": [
+    "share_private_key",
+    "share_seed_phrase",
+    "sign_unknown_message",
+    "approve_unlimited_allowance",
+    "bridge_to_unknown_chain",
+    "deposit_to_unverified_contract",
+    "front_run_or_mev_attack",
+    "wash_trade",
+    "fake_liquidity_or_volume"
+  ],
+  "required_fields_before_wallet_prompt": [
+    "chain_id",
+    "contract_address",
+    "method_name",
+    "token_in",
+    "token_out",
+    "amount_in",
+    "minimum_amount_out",
+    "slippage_bps",
+    "deadline",
+    "simulation_result",
+    "plain_language_summary"
+  ],
+  "logging": {
+    "store_private_data": false,
+    "store_transaction_hash": true,
+    "store_simulation_summary": true,
+    "store_balance_before_after": true
+  }
+}
